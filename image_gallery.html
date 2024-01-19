@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpaceX Launch Image Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .gallery-item {
+      box-sizing: border-box;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <nav class="txt-body txt-m">
+    <ul class="navigation-list">
+      <li><a href="#apod-container"> Home </a></li>
+      <li><a href="#planet-info-container"> Simulator </a></li>
+      <li><a href="#events"> Events </a></li>
+      <li><a href="./image_gallery.html" target="_blank"> Images </a></li>
+    </ul>
+  </nav>
+
+  <div class="gallery" id="spaceXGallery"></div>
+
+<script>
+  // Function to fetch SpaceX launch images from the SpaceX API
+  async function fetchSpaceXImages() {
+    try {
+      const response = await fetch('https://api.spacexdata.com/v4/launches/past');
+      const launches = await response.json();
+
+      // Filter launches with images
+      const launchesWithImages = launches.filter(launch => launch.links.flickr.original.length > 0);
+
+      return launchesWithImages;
+    } catch (error) {
+      console.error('Error fetching SpaceX images:', error);
+    }
+  }
+
+  // Function to display SpaceX launch images in the gallery
+  function displaySpaceXImages(images) {
+    const galleryElement = document.getElementById('spaceXGallery');
+
+    if (galleryElement) {
+      galleryElement.innerHTML = '';
+
+      images.forEach((launch) => {
+        const galleryItem = document.createElement('div');
+        galleryItem.classList.add('gallery-item');
+
+        const imageElement = document.createElement('img');
+        // Using the first image link from Flickr
+        imageElement.src = launch.links.flickr.original[0];
+        imageElement.alt = `SpaceX Launch ${launch.name}`;
+
+        galleryItem.appendChild(imageElement);
+        galleryElement.appendChild(galleryItem);
+      });
+    }
+  }
+
+  // Fetch SpaceX launch images and display them in the gallery
+  fetchSpaceXImages().then((images) => {
+    displaySpaceXImages(images);
+  });
+</script>
+
+</body>
+</html>

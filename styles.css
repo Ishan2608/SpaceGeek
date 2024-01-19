@@ -1,0 +1,316 @@
+:root{
+    --light-primary: rgb(236, 234, 234);
+    --dark-p: #0c0c0c;
+    --light-secondary: rgb(10, 96, 224);
+}
+
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.text-border{
+  border: 2px solid black;
+}
+
+/* --------------------------------------------------- */
+/* TEXT STYLES */
+/* --------------------------------------------------- */
+
+.txt-heading{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.txt-body{
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.txt-body-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+.txt-xl{
+  font-size: 68px;
+}
+
+.txt-l{
+  font-size: 36px;
+}
+
+.txt-m{
+  font-size: 20px;
+}
+
+.justify{
+  text-align: justify;
+}
+
+p{
+  margin-bottom: 20px;
+}
+
+/* --------------------------------------------------- */
+/* BACKGROUND AND TEXT COLOR STYLES */
+/* --------------------------------------------------- */
+
+.dark-bg{
+  color: var(--light-primary);
+  background-color: var(--dark-p);
+}
+
+.light-bg{
+  color: var(--dark-p);
+  background-color: var(--light-primary);
+}
+
+.secondary-bg{
+  color: var(--light-primary);
+  background-color: var(--light-secondary);
+}
+
+.secondary-txt-color{
+  color: var(--light-secondary);
+}
+
+/* --------------------------------------------------- */
+/* BUTTON STYLES */
+/* --------------------------------------------------- */
+
+.btn{
+  outline: none;
+  border: 0;
+  border-radius: 3px;
+  padding: 10px 15px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.527);
+}
+
+.btn:hover{
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+i.close{
+  margin-bottom: 20px;
+}
+
+i:hover{
+  cursor: pointer;
+}
+
+/* --------------------------------------------------- */
+/* LINK STYLES */
+/* --------------------------------------------------- */
+
+a{
+  color: var(--light-secondary);
+  text-decoration: none;
+}
+
+a:hover{
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+/* --------------------------------------------------- */
+/* NAVIGATION STYLES */
+/* --------------------------------------------------- */
+
+nav{
+  background-color: var(--dark-p);
+  padding: 10px 20px;
+}
+
+.navigation-list{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.navigation-list li{
+  padding: 5px 12px;
+}
+
+.navigation-list li a{
+  color: white;
+}
+
+.navigation-list li a:hover{
+  color: var(--light-secondary);
+}
+
+/* --------------------------------------------------- */
+/* CARD STYLES */
+/* --------------------------------------------------- */
+
+.card{
+  background-color: var(--light-primary);
+  padding: 40px 40px;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: start;
+  align-items: start;
+}
+
+.card {
+  overflow-y: auto;
+  height: 100%; 
+}
+
+.card::-webkit-scrollbar {
+  width: 8px; /* Adjust scrollbar width as needed */
+  background-color: transparent; /* Transparent background */
+}
+
+.card::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5); /* Black scrollbar with 50% opacity */
+  border-radius: 4px; /* Rounded edges for the scrollbar thumb */
+}
+
+.card.center-card{
+  justify-content: center;
+}
+
+.card img{
+  width: 100%;
+  height: auto;
+}
+
+.center-flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.img-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.img-card img{
+  width: 80%;
+  height: auto;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.356);
+}
+
+/* --------------------------------------------------- */
+/* CONTAINER STYLES */
+/* --------------------------------------------------- */
+
+h1, h2{
+  margin-bottom: 20px;
+}
+
+/* Header Containers */
+
+#header-container{
+  background-image: url("./assets/header_banner.jpg");
+}
+
+#header-content{
+  width: 80%;
+  height: 70%;
+}
+
+/* APOD Containers */
+
+#apod-container,
+#events{
+  padding: 20px 20px;
+  background-color: var(--dark-p);
+}
+
+#apod-info{
+  width: 50%;
+}
+
+/* Solar System Information */
+
+#planet-info-container{
+  position: relative;
+}
+
+#solar-system-simulator{
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+#display-planet-info{
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  transform: translate(0%, -50%);
+  transition: left 0.5s ease;
+  width: 600px;
+  height: 100%;
+  z-index: 2;
+}
+
+#display-planet-info.active{
+  left: 0;
+}
+
+.cover-screen{
+  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+}
+
+
+.img-overlay-container {
+  position: relative;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.image-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.11);
+  z-index: 1;
+  
+}
+
+.center-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.flex-container{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+}
+
+.left, .right{
+  width: 50%;
+}
+
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
