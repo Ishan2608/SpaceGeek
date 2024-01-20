@@ -207,6 +207,14 @@ nav{
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.356);
 }
 
+.credit{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  color: rgba(255, 255, 255, 0.329);
+}
+
 /* --------------------------------------------------- */
 /* CONTAINER STYLES */
 /* --------------------------------------------------- */
@@ -257,13 +265,13 @@ h1, h2{
   left: -100%;
   transform: translate(0%, -50%);
   transition: left 0.5s ease;
-  width: 600px;
-  height: 100%;
+  width: 550px;
+  height: 95%;
   z-index: 2;
 }
 
 #display-planet-info.active{
-  left: 0;
+  left: 10px;
 }
 
 .cover-screen{
