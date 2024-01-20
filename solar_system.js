@@ -245,7 +245,7 @@ var zoom = 1;
 var zoomRate = 0.02; // Adjusted zoom rate
 var canvas;
 var backgroundImage;
-
+let solarSystemCanvas;
 
 // FUNCTION TO DRAW THE BACKGROUND
 function drawBackground() {
@@ -271,8 +271,16 @@ function preload() {
 
 function setup() {
   let canvasContainer = select("#solar-system-simulator");
-  canvas = createCanvas(canvasContainer.width, canvasContainer.height);
-  canvas.parent("solar-system-simulator");
+  solarSystemCanvas = createCanvas(canvasContainer.width, canvasContainer.height);
+  solarSystemCanvas.parent("solar-system-simulator");
+}
+
+// Function to handle screen size changes
+function handleResize() {
+  solarSystemCanvas.width = solarSystemCanvas.parent().width;
+  solarSystemCanvas.height = solarSystemCanvas.parent().height;
+
+  // Additional logic to redraw or reposition elements if needed
 }
 
 function draw() {
@@ -346,6 +354,8 @@ function mouseWheel(event) {
     event.preventDefault();
   }
 }
+
+
 
 // ----------------------------------------------------------------------
 // SHOW AND REMOVE THE CARD FOR PLANET INFO AS REQUIRED
