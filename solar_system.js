@@ -243,9 +243,8 @@ var planetNames = [
 var selectedPlanet = null;
 var zoom = 1;
 var zoomRate = 0.02; // Adjusted zoom rate
-var canvas;
 var backgroundImage;
-let solarSystemCanvas;
+var solarSystemCanvas;
 
 // FUNCTION TO DRAW THE BACKGROUND
 function drawBackground() {
@@ -333,15 +332,7 @@ function draw() {
     }
   }
 
-  // // Display selected planet name
-  // fill(255);
-  // textSize(16);
-  // textAlign(CENTER);
-  // text(
-  //   selectedPlanet || "Click on a planet",
-  //   canvas.width / 2,
-  //   canvas.height - 20
-  // );
+
 }
 
 
@@ -355,7 +346,32 @@ function mouseWheel(event) {
   }
 }
 
+function mousePressed() {
+  // Start dragging
+  if (mouseButton === LEFT) {
+    isDragging = true;
+    prevMouseX = mouseX;
+    prevMouseY = mouseY;
+  }
+}
 
+function mouseReleased() {
+  // Stop dragging
+  if (mouseButton === LEFT) {
+    isDragging = false;
+  }
+}
+
+function mouseDragged() {
+  // Drag the scene when the left mouse button is held down
+  if (isDragging) {
+    offsetX += mouseX - prevMouseX;
+    offsetY += mouseY - prevMouseY;
+    prevMouseX = mouseX;
+    prevMouseY = mouseY;
+  }
+  return false;
+}
 
 // ----------------------------------------------------------------------
 // SHOW AND REMOVE THE CARD FOR PLANET INFO AS REQUIRED
