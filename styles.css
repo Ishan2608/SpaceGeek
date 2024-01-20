@@ -1,6 +1,7 @@
 :root{
     --light-primary: rgb(236, 234, 234);
     --dark-p: #0c0c0c;
+    --dark-p-transparent: #0c0c0ca6;
     --light-secondary: rgb(10, 96, 224);
 }
 
@@ -152,7 +153,6 @@ nav{
 /* --------------------------------------------------- */
 
 .card{
-  background-color: var(--light-primary);
   padding: 40px 40px;
   height: 80%;
   display: flex;
@@ -160,11 +160,9 @@ nav{
   gap: 20px;
   justify-content: start;
   align-items: start;
-}
-
-.card {
   overflow-y: auto;
-  height: 100%; 
+  word-wrap: break-word;
+  background-color: var(--light-primary);
 }
 
 .card::-webkit-scrollbar {
@@ -207,12 +205,15 @@ nav{
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.356);
 }
 
+.credit-container{
+  position: relative;
+}
+
 .credit{
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background: none;
-  color: rgba(255, 255, 255, 0.329);
+  top: 8px;
+  left: 8px;
+  color: rgba(255, 255, 255, 0.575);
 }
 
 /* --------------------------------------------------- */
@@ -318,6 +319,25 @@ h1, h2{
 
 .left, .right{
   width: 50%;
+}
+
+#planets-menu{
+  background-color: var(--dark-p-transparent);
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 100px;
+  height: 100%;
+  color: var(--light-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 10px;
+}
+
+#planets-menu button{
+  width: 100%;
 }
 
 /* --------------------------------------------------- */

@@ -74,26 +74,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <main id="planet-info-container" class="cover-screen">
 
-      <!-- <h1 class="credit txt-heading">Credit To: Spacekit</h1> -->
-
-      <!-- Display solar system simulator here -->
-      <div id="solar-system-simulator" class="cover-parent" style="background-color: black;">
-  
+      <div id="planets-menu">
+        <button class="btn dark-bg planet-option">Sun</button>
+        <button class="btn dark-bg planet-option">Mercury</button>
+        <button class="btn dark-bg planet-option">Venus</button>
+        <button class="btn dark-bg planet-option">Earth</button>
+        <button class="btn dark-bg planet-option">Mars</button>
+        <button class="btn dark-bg planet-option">Jupiter</button>
+        <button class="btn dark-bg planet-option">Saturn</button>
+        <button class="btn dark-bg planet-option">Uranus</button>
+        <button class="btn dark-bg planet-option">Neptune</button>
+        <button class="btn dark-bg planet-option">Pluto</button>
       </div>
 
+      <!-- Display solar system simulator here -->
+      <div id="solar-system-simulator" class="cover-parent" style="background-color: black;"></div>
+
       <!-- Show planet Info Here -->
-      <div id="display-planet-info" class="card">
+      <div id="display-planet-info" class="card light-card">
 
         <i id="planet-card-close" class="fa-regular fa-x close txt-m"></i>
 
         <h2 id="planet-info-name" class="txt-heading txt-l"> 
           Planet Name 
         </h2>
-        <img  id="planet-info-img" src="" alt="">
+        <div class="credit-container">
+          <h3 class="credit txt-heading">Credit: Wikimedia Cosmos</h3>
+          <img  id="planet-info-img" src="" alt="">
+        </div>
         <p id="planet-info-para" class="txt-body txt-m justify">
           
         </p>
       </div>
+
     </main>
 
     <!-- A SECTION TO DISPLAY UPCOMING EVENTS -->

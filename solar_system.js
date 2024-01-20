@@ -15,12 +15,12 @@ const planetData = [
     orbitalEccentricity: '0.0167',
     axialTilt: '7.25 degrees',
     ringSystem: false,
-    surfaceFeatures: "The Sun's surface is turbulent, with sunspots, solar flares, and prominences."
-    ,
+    surfaceFeatures: "The Sun's surface is turbulent, with sunspots, solar flares, and prominences.",
     discovery: "Known since prehistoric times",
     notableMissions: [],
     rotationPeriod: "About 25 days near the equator, longer at higher latitudes",
     magneticFieldStrength: "Varies, with an average of 1-2 Gauss",
+    url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Magnificent_CME_Erupts_on_the_Sun_-_August_31.jpg/640px-Magnificent_CME_Erupts_on_the_Sun_-_August_31.jpg'
   },
   {
       name: 'Mercury',
@@ -40,6 +40,7 @@ const planetData = [
       notableMissions: [],
       rotationPeriod: '59 days',
       magneticFieldStrength: '0.00006 times that of Earth',
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Mercury_MESSENGER_MDIS_Basemap_MD3Color_Mosaic_Global_665m.tif/lossy-page1-640px-Mercury_MESSENGER_MDIS_Basemap_MD3Color_Mosaic_Global_665m.tif.jpg"
   },
   {
       name: 'Venus',
@@ -59,6 +60,7 @@ const planetData = [
       notableMissions: [],
       rotationPeriod: '243 days',
       magneticFieldStrength: '0.000015 times that of Earth',
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/PIA00233-_Venus_-_3D_Perspective_View_of_Eistla_Regio.jpg/640px-PIA00233-_Venus_-_3D_Perspective_View_of_Eistla_Regio.jpg"
   },
   {
       name: 'Earth',
@@ -78,6 +80,7 @@ const planetData = [
       notableMissions: ['Apollo 11', 'Curiosity Rover'],
       rotationPeriod: '24 hours',
       magneticFieldStrength: '0.25 to 0.65 Gauss',
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Dream_land_on_planet_earth_-_Saiful_Muluk_Lake.jpg/640px-Dream_land_on_planet_earth_-_Saiful_Muluk_Lake.jpg"
   },
   {
       name: 'Mars',
@@ -97,6 +100,7 @@ const planetData = [
       notableMissions: ['Mars Rover (various missions)'],
       rotationPeriod: '24.6 hours',
       magneticFieldStrength: '0.001 times that of Earth',
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Mars_Perseverance_ZL0_0069_0673066054_500ECV_N0032208ZCAM05053_026050J-web1.jpg/640px-Mars_Perseverance_ZL0_0069_0673066054_500ECV_N0032208ZCAM05053_026050J-web1.jpg"
   },
   {
       name: 'Jupiter',
@@ -116,6 +120,7 @@ const planetData = [
       notableMissions: ['Galileo Probe', 'Juno'],
       rotationPeriod: '9.8 hours',
       magneticFieldStrength: '14 times that of Earth',
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/PIA22939_-_Jupiter%27s_Brown_Barge.jpg/640px-PIA22939_-_Jupiter%27s_Brown_Barge.jpg"
   },
   {
       name: 'Saturn',
@@ -135,6 +140,7 @@ const planetData = [
       notableMissions: ['Cassini-Huygens'],
       rotationPeriod: '10.7 hours',
       magneticFieldStrength: '0.22 times that of Earth',
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Saturn_Outer_Rings.jpg/640px-Saturn_Outer_Rings.jpg"
   },
   {
       name: 'Uranus',
@@ -154,6 +160,7 @@ const planetData = [
       notableMissions: [],
       rotationPeriod: '17.2 hours',
       magneticFieldStrength: '0.23 times that of Earth',
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Two_color_images_of_Uranus_from_9.1_million_km_%28Voyager_2%2C_P-29478%29.tif/lossless-page1-640px-Two_color_images_of_Uranus_from_9.1_million_km_%28Voyager_2%2C_P-29478%29.tif.png"
   },
   {
       name: 'Neptune',
@@ -173,6 +180,7 @@ const planetData = [
       notableMissions: ['Voyager 2'],
       rotationPeriod: '16.1 hours',
       magneticFieldStrength: '0.46 times that of Earth',
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Springtime_on_Neptune-_Increased_Brightness_Shows_Seasonal_Change.jpg/640px-Springtime_on_Neptune-_Increased_Brightness_Shows_Seasonal_Change.jpg"
   },
   {
       name: 'Pluto',
@@ -192,6 +200,7 @@ const planetData = [
       notableMissions: ['New Horizons'],
       rotationPeriod: '6.4 days',
       magneticFieldStrength: 'Unknown',
+      url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Pluto-FarSideView-2019.jpg/640px-Pluto-FarSideView-2019.jpg"
   }    
 ];
 
@@ -347,6 +356,7 @@ function showPlanetInfo(planetName){
   const planetInfo = document.getElementById('display-planet-info');
   const planetInfoName = document.getElementById("planet-info-name");
   const planetInfoPara = document.getElementById("planet-info-para");
+  const planetInfoImg = document.getElementById("planet-info-img");
   const planetClose = document.getElementById('planet-card-close');
 
   // Decide for which planet, the card will show info
@@ -388,26 +398,31 @@ function showPlanetInfo(planetName){
 
   // Set the title of the Card
   planetInfoName.textContent = planetData[idx].name;
+  planetInfoImg.setAttribute('src', planetData[idx].url)
+
 
   // Select the object from list
   const obj = planetData[idx];
 
   // Create a list
-  const ulElement = document.createElement('ul');
+  const ulElement = document.createElement('div');
 
     // Loop through the object properties and create list items
   for (const key in planetData[idx]) {
-      if (obj.hasOwnProperty(key)) {
-          const liElement = document.createElement('li');
-          const keySpan = document.createElement('span');
-          keySpan.textContent = key;
-          keySpan.classList.add('txt-body-bold');
+    if (key == 'url'){
+      continue;
+    }
+    if (obj.hasOwnProperty(key)) {
+        const liElement = document.createElement('p');
+        const keySpan = document.createElement('b');
+        keySpan.textContent = key;
+        keySpan.classList.add('txt-body-bold');
 
-          // Append the key span and the value to the list item
-          liElement.appendChild(keySpan);
-          liElement.innerHTML += `: ${obj[key]}`;
-          ulElement.appendChild(liElement);
-      }
+        // Append the key span and the value to the list item
+        liElement.appendChild(keySpan);
+        liElement.innerHTML += `: ${obj[key]}`;
+        ulElement.appendChild(liElement);
+    }
   }
 
   // Append the unordered list to the output element
@@ -421,3 +436,13 @@ function showPlanetInfo(planetName){
       planetInfo.classList.remove('active');
   })
 }
+
+const planetNameElements = document.querySelectorAll('.planet-option');
+
+    // Attach click event listener to each element
+    planetNameElements.forEach(element => {
+      element.addEventListener('click', function() {
+        // Call showInfo function with text content as an argument
+        showPlanetInfo(this.textContent);
+      });
+    });
