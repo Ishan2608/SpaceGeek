@@ -280,6 +280,51 @@ h1, h2{
   left: 10px;
 }
 
+#events-calender{
+  padding: 40px 40px;
+}
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  /* aspect-ratio: 1; */
+}
+
+.date {
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.weekday {
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.event {
+  background-color: var(--light-secondary);
+  color: var(--light-primary);
+  font-weight: bold;
+}
+
+
+#date-variables{
+  padding: 20px 10px;
+  border-bottom: 2px solid var(--light-secondary);
+  margin-bottom: 20px;
+}
+
+#events .left{
+  height: 90%;
+}
+
+#events .right{
+  height: 90%;
+  border: 2px solid white;
+}
+
 .cover-screen{
   height: 100vh;
   min-height: 100vh;
@@ -320,10 +365,11 @@ h1, h2{
   justify-content: space-evenly;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .left, .right{
-  width: 50%;
+  width: 45%;
 }
 
 #planets-menu{

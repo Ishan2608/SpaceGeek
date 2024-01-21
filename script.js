@@ -73,37 +73,64 @@ function truncateText(text, wordLimit = 80) {
     }
 }
 
-// ------------------------------------------------------------
-// 3D Solar System
-// ------------------------------------------------------------
-
-// const viz = new Spacekit.Simulation(document.getElementById('solar-system-simulator'), {
-//     basePath: 'https://typpo.github.io/spacekit/src',
-// });
-  
-// // Create a background using Yale Bright Star Catalog data.
-// viz.createStars();
-
-// // Create our first object - the sun - using a preset space object.
-// viz.createObject('sun', Spacekit.SpaceObjectPresets.SUN);
-
-// // Then add some planets
-// viz.createObject('mercury', Spacekit.SpaceObjectPresets.MERCURY);
-// viz.createObject('venus', Spacekit.SpaceObjectPresets.VENUS);
-// viz.createObject('earth', Spacekit.SpaceObjectPresets.EARTH);
-// viz.createObject('mars', Spacekit.SpaceObjectPresets.MARS);
-// viz.createObject('jupiter', Spacekit.SpaceObjectPresets.JUPITER);
-// viz.createObject('saturn', Spacekit.SpaceObjectPresets.SATURN);
-// viz.createObject('uranus', Spacekit.SpaceObjectPresets.URANUS);
-// viz.createObject('neptune', Spacekit.SpaceObjectPresets.NEPTUNE);
-
-// viz.timeScale = 0.9
 
 // ------------------------------------------------------------
 // EVENTS
 // ------------------------------------------------------------
 
+const eventTitle = document.getElementById('event-heading');
+const eventPara = document.getElementById('event-para');
+const eventImg = document.getElementById('event-img');
+const eventBtn = document.getElementById('event-save-btn');
 
+const calendarContainer = document.getElementById('calendar');
+
+function updateCalendar() {
+    const year = document.getElementById('year').value;
+    const month = document.getElementById('month').value;
+
+    // Calculate the first day of the month and the total number of days
+    const firstDay = new Date(year, month - 1, 1).getDay(); // 0 is Sunday, 1 is Monday, etc.
+    const daysInMonth = new Date(year, month, 0).getDate();
+
+    // Clear previous calendar content
+    calendarContainer.innerHTML = '';
+
+    // Display weekdays row
+    const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    weekdays.forEach(weekday => {
+        const weekdayCell = document.createElement('div');
+        weekdayCell.classList.add('weekday');
+        weekdayCell.textContent = weekday;
+        calendarContainer.appendChild(weekdayCell);
+    });
+
+    // Create calendar grid
+    for (let i = 0; i < firstDay; i++) {
+        const emptyCell = document.createElement('div');
+        emptyCell.classList.add('date', 'empty');
+        calendarContainer.appendChild(emptyCell);
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+        const dateCell = document.createElement('div');
+        dateCell.classList.add('date');
+
+        // Check if the day has a celestial event (You can add this logic if needed)
+
+        dateCell.textContent = day;
+        dateCell.addEventListener('click', () => showEventInfo(day));
+        calendarContainer.appendChild(dateCell);
+    }
+}
+
+function showEventInfo(title, url, para){
+    // code here
+    console.log("Show Event Information.");
+}
+
+// Initial calendar update when the page loads
+updateCalendar();
 
 // ------------------------------------------------------------
 // NEWS

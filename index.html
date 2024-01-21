@@ -110,20 +110,46 @@
     </main>
 
     <!-- A SECTION TO DISPLAY UPCOMING EVENTS -->
-    <section id="events">
+    <section id="events" class="cover-screen flex-container">
       <div class="left card">
-        <h1 class="txt-heading txt-l"> 
+        <h1 id="event-heading" class="txt-heading txt-l"> 
           Event Heading 
         </h1>
-        <img src="" alt="">
-        <p class="txt-body justify">
+        <img id="event-img" src="" alt="">
+        <p class="txt-body justify" id="event-para">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis eius laudantium voluptatibus ullam voluptas laboriosam facilis optio obcaecati maxime magni. Non quasi ipsum quidem ipsam voluptatem adipisci repudiandae, accusamus commodi!
         </p>
         <button class="btn secondary-bg text-body-bold txt-m">
           Save
         </button>
       </div>
-      <div id="events-calender" class="right"></div>
+
+      <div id="events-calender" class="right light-bg txt-body txt-m">
+        <div id="date-variables" class="flex-container">
+          <label for="year">Year: </label>
+          <input type="number" id="year" min="2022" max="2030" value="2022">
+          <label for="month">Month: </label>
+          <select id="month">
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+          </select>
+
+          <button id="event-save-btn" onclick="updateCalendar()" class="btn secondary-bg">Update Calendar</button>
+        </div>
+        
+        <div id="calendar">
+        </div>
+      </div>
     </section>
 
 
