@@ -158,7 +158,7 @@ async function getArticleFromSpaceflight() {
         newsCreditHeading.textContent = `Credit: ${article.news_site}`;
         newsImage.src = article.image_url || 'placeholder-image-url'; // Use placeholder if image not available
         newsDescription.textContent = article.summary;
-        displayArticleBtn.href = `path_to_new_page/${article.id}`;
+        displayArticleBtn.href = `${path}/${article.id}`;
     } catch (error) {
         console.error('Error fetching news:', error);
         // Handle errors gracefully, e.g., display an error message to the user
@@ -180,12 +180,14 @@ async function displayISRONews(){
     const heading = document.getElementById('news-isro-heading');
     const para = document.getElementById('news-isro-para');
     const btn = document.getElementById('news-isro-btn');
+    const img = document.getElementById('news-isro-img');
+    const imgCredit = document.getElementById('news-isro-img-credit');
 
     heading.textContent = article.title;
     para.textContent = article.summary;
     btn.href = `${path}/${article.id}`;
-    // newsCreditHeading.textContent = `Credit: ${article.news_site}`;
-    // newsImage.src = article.image_url || 'placeholder-image-url'; // Use placeholder if image not available
+    imgCredit.textContent = `Credit: ${article.news_site}`;
+    img.src = article.image_url || 'placeholder-image-url'; // Use placeholder if image not available
 }
 
 async function displayNASANews(){
@@ -201,12 +203,14 @@ async function displayNASANews(){
     const heading = document.getElementById('news-nasa-heading');
     const para = document.getElementById('news-nasa-para');
     const btn = document.getElementById('news-nasa-btn');
+    const img = document.getElementById('news-nasa-img');
+    const imgCredit = document.getElementById('news-nasa-img-credit');
 
     heading.textContent = article.title;
     para.textContent = article.summary;
     btn.href = `${path}/${article.id}`;
-    // newsCreditHeading.textContent = `Credit: ${article.news_site}`;
-    // newsImage.src = article.image_url || 'placeholder-image-url'; // Use placeholder if image not available
+    imgCredit.textContent = `Credit: ${article.news_site}`;
+    img.src = article.image_url || 'placeholder-image-url'; // Use placeholder if image not available
 }
 
 async function displaySpaceXNews(){
@@ -222,12 +226,14 @@ async function displaySpaceXNews(){
     const heading = document.getElementById('news-spacex-heading');
     const para = document.getElementById('news-spacex-para');
     const btn = document.getElementById('news-spacex-btn');
+    const img = document.getElementById('news-spacex-img');
+    const imgCredit = document.getElementById('news-spacex-img-credit');
 
     heading.textContent = article.title;
     para.textContent = article.summary;
     btn.href = `${path}/${article.id}`;
-    // newsCreditHeading.textContent = `Credit: ${article.news_site}`;
-    // newsImage.src = article.image_url || 'placeholder-image-url'; // Use placeholder if image not available
+    imgCredit.textContent = `Credit: ${article.news_site}`;
+    img.src = article.image_url || 'placeholder-image-url'; // Use placeholder if image not available
 }
 
 getArticleFromSpaceflight()
