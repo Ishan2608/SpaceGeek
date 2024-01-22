@@ -405,7 +405,7 @@ h1, h2{
 }
 
 #space-news img{
-  width: 200px;
+  width: 100%;
   height: auto;
 }
 
@@ -422,9 +422,13 @@ h1, h2{
   align-items: center;
 }
 
-#news-img-n-para p,
-#news-img-n-para img{
+#news-img-n-para div,
+#news-img-n-para .credit-container{
   width: 45%;
+}
+
+#news-description-container{
+  justify-content: start;
 }
 
 /* --------------------------------------------------- */
