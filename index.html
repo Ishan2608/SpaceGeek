@@ -69,10 +69,9 @@
       </div>
     </section>
 
-    <!-- SOLAR SYSTEM SIMULATOR TO SHOW INFO OF USER CLICKED PLANET -->
-
+    <!-- SOLAR SYSTEM SIMULATOR -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <main id="planet-info-container" class="cover-screen">
+    <section id="planet-info-container" class="cover-screen">
 
       <div id="planets-menu">
         <button class="btn dark-bg planet-option">Sun</button>
@@ -107,7 +106,7 @@
         </p>
       </div>
 
-    </main>
+    </section>
 
     <!-- A SECTION TO DISPLAY UPCOMING EVENTS -->
     <section id="events" class="cover-screen flex-container">
@@ -152,9 +151,18 @@
       </div>
     </section>
 
+    <section id="space-news" class="cover-screen">
+      <div id="latest-news" class="card">
+        <h1 id="news-heading" class="txt-heading txt-l">Stay Updated with Latest NEWS</h1>
+        <div id="news-img-n-para">
+          <img id="news-image" alt="Space News Image">
+          <p id="news-description" class="txt-body txt-l"></p>
+        </div>
+      </div>
+      <div id="space-news-container"></div>
+    </section>
 
-
-    <!-- CONNECT TO JAVACRIPT FILES -->
+    <!-- CONNECT TO JAVASCRIPT FILES -->
     
     <!-- import main script -->
     <script src="solar_system.js"></script>

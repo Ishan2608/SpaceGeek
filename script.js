@@ -1,15 +1,13 @@
 // ------------------------------------------------------------
-// APOD
+// Astronomical Picture of the Day
 // ------------------------------------------------------------
 
 async function fetchAndSetAPOD() {
-    const apodUrl = "https://api.nasa.gov/planetary/apod?api_key=0KIxUyg5dB8eaMjPtsZ5ARfWfQEs0h8I6Y0b9ST5"; 
-    // Replace YOUR_API_KEY with your actual API key
-  
+    const apodUrl = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY"; 
     
     const response = await fetch(apodUrl);
     const data = await response.json();
-    console.log(data)
+    // console.log(data)
     const apodImageUrl = data.url;
     const apodImage = document.getElementById("apod-img");
     const apodPara = document.getElementById("apod-para");
@@ -135,6 +133,34 @@ updateCalendar();
 // ------------------------------------------------------------
 // NEWS
 // ------------------------------------------------------------
+
+
+const newsHeading = document.getElementById('news-heading');
+const newsImage = document.getElementById('news-image');
+const newsDescription = document.getElementById('news-description');
+const spaceNewsContainer = document.getElementById('space-news-container');
+
+async function getArticleFromSpaceflight() {
+    try {
+        const response = await fetch(`https://api.spaceflightnewsapi.net/v4/articles?_limit=1&_sort=published_at:DESC`);
+
+        const data = await response.json();
+        console.log(data);
+        const article = data.results[0]; // Get the first article
+        console.log(article);
+
+        // Update the content with the retrieved news
+        newsHeading.textContent = article.title;
+        newsImage.src = article.image_url || 'placeholder-image-url'; // Use placeholder if image not available
+        newsDescription.textContent = article.summary;
+    } catch (error) {
+        console.error('Error fetching news:', error);
+        // Handle errors gracefully, e.g., display an error message to the user
+        alert('Failed to fetch latest news. Please try again later.');
+    }
+}
+
+getArticleFromSpaceflight();
 
 
 // ------------------------------------------------------------
