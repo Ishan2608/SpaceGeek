@@ -212,7 +212,7 @@ const planetData = [
 var sunImage, mercuryImage, venusImage, earthImage, marsImage, 
   jupiterImage, saturnImage, uranusImage, neptuneImage, plutoImage;
 
-var planetDistances = [0, 400, 580, 760, 1000, 1500, 2500, 3300, 3900, 4400]; 
+var planetDistances = [0, 400, 580, 760, 1000, 2000, 2500, 3300, 3900, 4400]; 
 
 var planetSizes = {
   Sun: 300,
@@ -224,7 +224,7 @@ var planetSizes = {
   Saturn: 170,
   Uranus: 160,
   Neptune: 150,
-  Pluto: 22,
+  Pluto: 50,
 };
 
 var planetNames = [
