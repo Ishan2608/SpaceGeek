@@ -130,10 +130,9 @@ function showEventInfo(title, url, para){
 // Initial calendar update when the page loads
 updateCalendar();
 
-// ------------------------------------------------------------
+// --------------------------------------------------------------------------------------------
 // NEWS
-// ------------------------------------------------------------
-
+// --------------------------------------------------------------------------------------------
 
 const newsHeading = document.getElementById('news-heading');
 const newsCreditHeading = document.getElementById('news-credit');
@@ -143,9 +142,13 @@ const spaceNewsContainer = document.getElementById('space-news-container');
 const displayArticleBtn = document.getElementById('open-latest-news-article');
 
 async function getArticleFromSpaceflight() {
-    try {
-        const response = await fetch(`https://api.spaceflightnewsapi.net/v4/articles?_limit=1&_sort=published_at:DESC`);
 
+    try {
+        const path = `https://api.spaceflightnewsapi.net/v4/articles`;
+        const queries = `?_limit=1&_sort=published_at:DESC`
+        const url = `${path}${queries}`
+        const response = await fetch(url);   
+        
         const data = await response.json();
         const article = data.results[0]; // Get the first article
         console.log(article);
@@ -159,14 +162,79 @@ async function getArticleFromSpaceflight() {
     } catch (error) {
         console.error('Error fetching news:', error);
         // Handle errors gracefully, e.g., display an error message to the user
-        alert('Failed to fetch latest news. Please try again later.');
+        newsHeading.textContent = 'Failed to fetch latest news. Please try RELOADING.'
     }
 }
 
-getArticleFromSpaceflight();
 
-function displayArticleDetail(id){
-    
+async function displayISRONews(){
+    const path = `https://api.spaceflightnewsapi.net/v4/articles`;
+    const queries = `?title_contains=isro&_limit=1&_sort=published_at:DESC`
+    const url = `${path}${queries}`
+    const response = await fetch(url);
+
+    const data = await response.json();
+    const article = data.results[0]; // Get the first article
+    console.log(article);
+
+    const heading = document.getElementById('news-isro-heading');
+    const para = document.getElementById('news-isro-para');
+    const btn = document.getElementById('news-isro-btn');
+
+    heading.textContent = article.title;
+    para.textContent = article.summary;
+    btn.href = `${path}/${article.id}`;
+    // newsCreditHeading.textContent = `Credit: ${article.news_site}`;
+    // newsImage.src = article.image_url || 'placeholder-image-url'; // Use placeholder if image not available
 }
+
+async function displayNASANews(){
+    const path = `https://api.spaceflightnewsapi.net/v4/articles`;
+    const queries = `?title_contains=nasa&_limit=1&_sort=published_at:DESC`
+    const url = `${path}${queries}`
+    const response = await fetch(url);
+
+    const data = await response.json();
+    const article = data.results[0]; // Get the first article
+    console.log(article);
+
+    const heading = document.getElementById('news-nasa-heading');
+    const para = document.getElementById('news-nasa-para');
+    const btn = document.getElementById('news-nasa-btn');
+
+    heading.textContent = article.title;
+    para.textContent = article.summary;
+    btn.href = `${path}/${article.id}`;
+    // newsCreditHeading.textContent = `Credit: ${article.news_site}`;
+    // newsImage.src = article.image_url || 'placeholder-image-url'; // Use placeholder if image not available
+}
+
+async function displaySpaceXNews(){
+    const path = `https://api.spaceflightnewsapi.net/v4/articles`;
+    const queries = `?title_contains=spacex&_limit=1&_sort=published_at:DESC`
+    const url = `${path}${queries}`
+    const response = await fetch(url);
+
+    const data = await response.json();
+    const article = data.results[0]; // Get the first article
+    console.log(article);
+
+    const heading = document.getElementById('news-spacex-heading');
+    const para = document.getElementById('news-spacex-para');
+    const btn = document.getElementById('news-spacex-btn');
+
+    heading.textContent = article.title;
+    para.textContent = article.summary;
+    btn.href = `${path}/${article.id}`;
+    // newsCreditHeading.textContent = `Credit: ${article.news_site}`;
+    // newsImage.src = article.image_url || 'placeholder-image-url'; // Use placeholder if image not available
+}
+
+getArticleFromSpaceflight()
+displayISRONews()
+displayNASANews()
+displaySpaceXNews()
+// function displayArticleDetail(id){
+    
 
 // ------------------------------------------------------------

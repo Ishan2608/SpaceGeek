@@ -229,7 +229,6 @@ nav{
   width: 100%;
 }
 
-
 .img-overlay-container {
   position: relative;
   overflow: hidden;
@@ -302,6 +301,7 @@ h1, h2{
 
 #planet-info-container{
   position: relative;
+  height: 100vh;
 }
 
 #solar-system-simulator{
@@ -311,10 +311,6 @@ h1, h2{
   z-index: 1;
 }
 
-canvas{
-  width: 100%;
-  height: 100%;
-}
 
 #display-planet-info{
   position: absolute;
@@ -441,10 +437,14 @@ canvas{
   padding: 20px 20px;
   gap: 20px;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
 }
 
 .news{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
   width: 400px;
 }
 
