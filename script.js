@@ -20,7 +20,7 @@ async function fetchAndSetAPOD() {
 
         let words = data.explanation.split(' ');
         
-        if (words.length > 80) {
+        if (words.length > 60) {
             // Truncate the text to 80 words
             var truncatedText = words.slice(0, 80).join(' ');
 
