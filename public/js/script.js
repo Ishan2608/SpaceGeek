@@ -120,15 +120,23 @@ function updateCalendar() {
         dateCell.addEventListener('click', () => showEventInfo(day));
         calendarContainer.appendChild(dateCell);
     }
+
+    getUpcomingLaunches()
 }
 
-function showEventInfo(title, url, para){
-    // code here
-    console.log("Show Event Information.");
+
+async function getUpcomingLaunches() {
+    const apiUrl = 'https://launchlibrary.net/1.3/launch/upcoming';
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    console.log(data);
 }
+
+
 
 // Initial calendar update when the page loads
 updateCalendar();
+
 
 // --------------------------------------------------------------------------------------------
 // NEWS
@@ -151,7 +159,7 @@ async function getArticleFromSpaceflight() {
         
         const data = await response.json();
         const article = data.results[0]; // Get the first article
-        console.log(article);
+        // console.log(article);
 
         // Update the content with the retrieved news
         newsHeading.textContent = article.title;
@@ -175,7 +183,7 @@ async function displayISRONews(){
 
     const data = await response.json();
     const article = data.results[0]; // Get the first article
-    console.log(article);
+    // console.log(article);
 
     const heading = document.getElementById('news-isro-heading');
     const para = document.getElementById('news-isro-para');
@@ -198,7 +206,7 @@ async function displayNASANews(){
 
     const data = await response.json();
     const article = data.results[0]; // Get the first article
-    console.log(article);
+    // console.log(article);
 
     const heading = document.getElementById('news-nasa-heading');
     const para = document.getElementById('news-nasa-para');
@@ -221,7 +229,7 @@ async function displaySpaceXNews(){
 
     const data = await response.json();
     const article = data.results[0]; // Get the first article
-    console.log(article);
+    // console.log(article);
 
     const heading = document.getElementById('news-spacex-heading');
     const para = document.getElementById('news-spacex-para');
@@ -240,7 +248,6 @@ getArticleFromSpaceflight()
 displayISRONews()
 displayNASANews()
 displaySpaceXNews()
-// function displayArticleDetail(id){
     
 
 // ------------------------------------------------------------

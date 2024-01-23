@@ -377,9 +377,9 @@ nav{
   flex: 1;
 }
 
-#events .right{
+/* #events .right{
   aspect-ratio: 1;
-}
+} */
 
 #events-calender{
   padding: 20px 20px;
