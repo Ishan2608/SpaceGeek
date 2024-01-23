@@ -269,7 +269,7 @@ var zoom = 1;
 var zoomRate = 0.02; // Adjusted zoom rate
 var backgroundImage;
 var solarSystemCanvas;
-var canvasContainer;
+var canvasContainer = document.getElementById("solar-system-simulator")
 
 // FUNCTION TO DRAW THE BACKGROUND
 function drawBackground() {
@@ -279,17 +279,17 @@ function drawBackground() {
 }
 
 function preload() {
-  backgroundImage = loadImage("./assets/simulator_bg.jpg");
-  sunImage = loadImage("./assets/Celestial Objects/sun.png");
-  mercuryImage = loadImage("./assets/Celestial Objects/mercury.png");
-  venusImage = loadImage("./assets/Celestial Objects/venus.png");
-  earthImage = loadImage("./assets/Celestial Objects/earth.png");
-  marsImage = loadImage("./assets/Celestial Objects/mars.png");
-  jupiterImage = loadImage("./assets/Celestial Objects/jupiter.png");
-  saturnImage = loadImage("./assets/Celestial Objects/saturn.png");
-  uranusImage = loadImage("./assets/Celestial Objects/uranus.png");
-  neptuneImage = loadImage("./assets/Celestial Objects/neptune.png");
-  plutoImage = loadImage("./assets/Celestial Objects/pluto.png");
+  backgroundImage = loadImage("public/assets/simulator_bg.jpg");
+  sunImage = loadImage("public/assets/Celestial Objects/sun.png");
+  mercuryImage = loadImage("public/assets/Celestial Objects/mercury.png");
+  venusImage = loadImage("public/assets/Celestial Objects/venus.png");
+  earthImage = loadImage("public/assets/Celestial Objects/earth.png");
+  marsImage = loadImage("public/assets/Celestial Objects/mars.png");
+  jupiterImage = loadImage("public/assets/Celestial Objects/jupiter.png");
+  saturnImage = loadImage("public/assets/Celestial Objects/saturn.png");
+  uranusImage = loadImage("public/assets/Celestial Objects/uranus.png");
+  neptuneImage = loadImage("public/assets/Celestial Objects/neptune.png");
+  plutoImage = loadImage("public/assets/Celestial Objects/pluto.png");
 }
 
 function setup() {
