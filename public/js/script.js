@@ -121,17 +121,25 @@ function updateCalendar() {
         calendarContainer.appendChild(dateCell);
     }
 
-    getUpcomingLaunches()
 }
 
 
-async function getUpcomingLaunches() {
-    const apiUrl = 'https://launchlibrary.net/1.3/launch/upcoming';
-    const response = await fetch(apiUrl);
+function updateEventCard(event){
+    eventTitle.textContent = event.title;
+    eventPara.textContent = event.description;
+    eventImg.setAttribute('src', event.feature_image);
+}
+
+async function getEventsForAMonth(year, month) {
+    // const launchMainURL = 'https://launchlibrary.net/1.3/launch/upcoming';
+    // const eventsMainURL = 'https://ll.thespacedevs.com/2.2.0/event/'
+    const eventsDevURL = `https://lldev.thespacedevs.com/2.2.0/event?month=${month}&year=${year}`
+    const response = await fetch(eventsDevURL);
     const data = await response.json();
-    console.log(data);
+    const results = new Array(data.results);
+    return results;
+    
 }
-
 
 
 // Initial calendar update when the page loads
