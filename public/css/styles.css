@@ -509,4 +509,32 @@ nav{
 }
 
 /* --------------------------------------------------- */
+/* IMAGE GALLERY */
+/* --------------------------------------------------- */
+
+#gallery-header{
+  background-image: url('../assets/img_gallery_header_bg.jpg'); 
+}
+
+.gallery-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.column{
+  padding: 20px 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.img-wrapper img{
+  width: 100%;
+}
+
+/* --------------------------------------------------- */
 /* --------------------------------------------------- */

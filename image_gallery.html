@@ -3,38 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SpaceX Launch Image Gallery</title>
+  <title>Image Gallery</title>
   <link rel="stylesheet" href="public/css/styles.css">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .gallery-item {
-      box-sizing: border-box;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    .gallery-item img:hover {
-      transform: scale(1.1);
-    }
-  </style>
 </head>
 <body>
   <nav class="txt-body txt-m">
@@ -43,10 +13,33 @@
       <li><a href="./index.html#planet-info-container"> Simulator </a></li>
       <li><a href="./index.html#events"> Events </a></li>
       <li><a href="image_gallery.html" target="_blank"> Images </a></li>
+      <li><a href="./index.html#space-news"> News </a></li>
     </ul>
   </nav>
 
-  <div class="gallery" id="spaceXGallery"></div>
+  <header id="gallery-header" class="cover-screen img-overlay-container">
+    <!-- An empty rectangle for black shadow effect on bg image-->
+    <div class="cover-parent image-overlay"> </div>
+
+    <!-- show main contents of the container -->
+    <div id="header-content" class="center-container center-flex">
+      <h1 class="txt-heading txt-xl">
+        Welcome to Our Image Gallery
+      </h1>
+    </div>
+  </header>
+
+  <main id="img-gallery-container" class="gallery-container cover-screen dark-bg">
+    <section id="spacex-gallery" class="column">
+      <h1 class="txt-heading txt-l">SpaceX Gallery</h1>
+    </section>
+    <section id="mars-rover-gallery" class="column">
+      <h1 class="txt-heading txt-l">Mars Rover Gallery</h1>
+    </section>
+    <section id="hubble-gallery" class="column">
+      <h1 class="txt-heading txt-l">Hubble Gallery</h1>
+    </section>
+  </main>
 
 <script>
   // Function to fetch SpaceX launch images from the SpaceX API
@@ -57,7 +50,7 @@
 
       // Filter launches with images
       const launchesWithImages = launches.filter(launch => launch.links.flickr.original.length > 0);
-
+      console.log(launchesWithImages)
       return launchesWithImages;
     } catch (error) {
       console.error('Error fetching SpaceX images:', error);
@@ -66,15 +59,14 @@
 
   // Function to display SpaceX launch images in the gallery
   function displaySpaceXImages(images) {
-    const galleryElement = document.getElementById('spaceXGallery');
+    const galleryElement = document.getElementById('spacex-gallery');
 
     if (galleryElement) {
-      galleryElement.innerHTML = '';
+      // galleryElement.innerHTML = '';
 
       images.forEach((launch) => {
         const galleryItem = document.createElement('div');
-        galleryItem.classList.add('gallery-item');
-
+        galleryItem.classList.add('img-wrapper');
         const imageElement = document.createElement('img');
         // Using the first image link from Flickr
         imageElement.src = launch.links.flickr.original[0];
