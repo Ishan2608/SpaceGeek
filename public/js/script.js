@@ -80,10 +80,11 @@ const eventTitle = document.getElementById('event-heading');
 const eventPara = document.getElementById('event-para');
 const eventImg = document.getElementById('event-img');
 const eventBtn = document.getElementById('event-save-btn');
-
 const calendarContainer = document.getElementById('calendar');
+var events
+var currEvent;
 
-function updateCalendar() {
+async function updateCalendar() {
     const year = document.getElementById('year').value;
     const month = document.getElementById('month').value;
 
@@ -103,6 +104,8 @@ function updateCalendar() {
         calendarContainer.appendChild(weekdayCell);
     });
 
+    events = await getEventsForAMonth(year, month);
+
     // Create calendar grid
     for (let i = 0; i < firstDay; i++) {
         const emptyCell = document.createElement('div');
@@ -113,21 +116,22 @@ function updateCalendar() {
     for (let day = 1; day <= daysInMonth; day++) {
         const dateCell = document.createElement('div');
         dateCell.classList.add('date');
-
-        // Check if the day has a celestial event (You can add this logic if needed)
-
+        if (events[day]){
+            dateCell.classList.add('event');
+            dateCell.addEventListener('click', updateEventCard)
+        }
         dateCell.textContent = day;
-        dateCell.addEventListener('click', () => showEventInfo(day));
         calendarContainer.appendChild(dateCell);
     }
-
 }
 
 
 function updateEventCard(event){
-    eventTitle.textContent = event.title;
-    eventPara.textContent = event.description;
-    eventImg.setAttribute('src', event.feature_image);
+    eventBtn.classList.remove('hidden');
+    currEvent = events[parseInt(event.target.textContent)];
+    eventTitle.textContent = currEvent.title;
+    eventPara.textContent = currEvent.description;
+    eventImg.setAttribute('src', currEvent.feature_image);
 }
 
 async function getEventsForAMonth(year, month) {
@@ -136,8 +140,20 @@ async function getEventsForAMonth(year, month) {
     const eventsDevURL = `https://lldev.thespacedevs.com/2.2.0/event?month=${month}&year=${year}`
     const response = await fetch(eventsDevURL);
     const data = await response.json();
-    const results = new Array(data.results);
-    return results;
+    const results = data.results;
+    results.forEach(event => {
+        const date = new Date(event.date).getDate();
+        // console.log(date)
+        event.date = date;
+    })
+    const objectOfObjects = results.reduce((acc, obj) => {
+        acc[obj.date] = obj;
+        return acc;
+      }, {});
+      
+    // console.log(objectOfObjects);
+    // console.log(results);
+    return objectOfObjects;
     
 }
 

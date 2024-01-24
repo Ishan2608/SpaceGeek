@@ -114,13 +114,13 @@
     <section id="events" class="cover-screen flex-container">
       <div class="left card flex-container">
         <h1 id="event-heading" class="txt-heading txt-l"> 
-          Event Heading 
+          Select a Date from the Calendar
         </h1>
         <img id="event-img" src="" alt="">
         <p class="txt-body justify" id="event-para">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis eius laudantium voluptatibus ullam voluptas laboriosam facilis optio obcaecati maxime magni. Non quasi ipsum quidem ipsam voluptatem adipisci repudiandae, accusamus commodi!
+          
         </p>
-        <button class="btn secondary-bg text-body-bold txt-m">
+        <button id="event-save-btn" class="btn secondary-bg text-body-bold txt-m hidden">
           Save
         </button>
       </div>
@@ -145,7 +145,7 @@
               <option value="12">December</option>
           </select>
 
-          <button id="event-save-btn" onclick="updateCalendar()" class="btn secondary-bg">Update Calendar</button>
+          <button onclick="updateCalendar()" class="btn secondary-bg">Update Calendar</button>
         </div>
         
         <div id="calendar">
