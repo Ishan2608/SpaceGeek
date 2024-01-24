@@ -129,7 +129,8 @@ async function updateCalendar() {
 function updateEventCard(event){
     eventBtn.classList.remove('hidden');
     currEvent = events[parseInt(event.target.textContent)];
-    eventTitle.textContent = currEvent.title;
+    console.log(currEvent)
+    eventTitle.textContent = currEvent.name;
     eventPara.textContent = currEvent.description;
     eventImg.setAttribute('src', currEvent.feature_image);
 }
@@ -146,13 +147,14 @@ async function getEventsForAMonth(year, month) {
         // console.log(date)
         event.date = date;
     })
+    // console.log(results);
+
     const objectOfObjects = results.reduce((acc, obj) => {
         acc[obj.date] = obj;
         return acc;
       }, {});
       
     // console.log(objectOfObjects);
-    // console.log(results);
     return objectOfObjects;
     
 }
