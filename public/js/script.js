@@ -79,7 +79,8 @@ function truncateText(text, wordLimit = 80) {
 const eventTitle = document.getElementById('event-heading');
 const eventPara = document.getElementById('event-para');
 const eventImg = document.getElementById('event-img');
-const eventBtn = document.getElementById('event-save-btn');
+const eventSaveBtn = document.getElementById('event-save-btn');
+const eventYTBtn = document.getElementById('event-yt-btn');
 const calendarContainer = document.getElementById('calendar');
 var events
 var currEvent;
@@ -127,12 +128,14 @@ async function updateCalendar() {
 
 
 function updateEventCard(event){
-    eventBtn.classList.remove('hidden');
+    eventSaveBtn.classList.remove('hidden');
+    eventYTBtn.classList.remove('hidden');
     currEvent = events[parseInt(event.target.textContent)];
     console.log(currEvent)
     eventTitle.textContent = currEvent.name;
     eventPara.textContent = currEvent.description;
     eventImg.setAttribute('src', currEvent.feature_image);
+    eventYTBtn.setAttribute('href', currEvent.video_url)
 }
 
 async function getEventsForAMonth(year, month) {
