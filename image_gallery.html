@@ -41,48 +41,7 @@
     </section>
   </main>
 
-<script>
-  // Function to fetch SpaceX launch images from the SpaceX API
-  async function fetchSpaceXImages() {
-    try {
-      const response = await fetch('https://api.spacexdata.com/v4/launches/past');
-      const launches = await response.json();
-
-      // Filter launches with images
-      const launchesWithImages = launches.filter(launch => launch.links.flickr.original.length > 0);
-      console.log(launchesWithImages)
-      return launchesWithImages;
-    } catch (error) {
-      console.error('Error fetching SpaceX images:', error);
-    }
-  }
-
-  // Function to display SpaceX launch images in the gallery
-  function displaySpaceXImages(images) {
-    const galleryElement = document.getElementById('spacex-gallery');
-
-    if (galleryElement) {
-      // galleryElement.innerHTML = '';
-
-      images.forEach((launch) => {
-        const galleryItem = document.createElement('div');
-        galleryItem.classList.add('img-wrapper');
-        const imageElement = document.createElement('img');
-        // Using the first image link from Flickr
-        imageElement.src = launch.links.flickr.original[0];
-        imageElement.alt = `SpaceX Launch ${launch.name}`;
-
-        galleryItem.appendChild(imageElement);
-        galleryElement.appendChild(galleryItem);
-      });
-    }
-  }
-
-  // Fetch SpaceX launch images and display them in the gallery
-  fetchSpaceXImages().then((images) => {
-    displaySpaceXImages(images);
-  });
-</script>
+  <script src="./public/js/image_gallery.js"></script>
 
 </body>
 </html>
