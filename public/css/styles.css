@@ -218,6 +218,7 @@ nav{
 
 .credit-container{
   position: relative;
+  width: 100%;
 }
 
 .credit{
@@ -293,7 +294,7 @@ nav{
 .left, .right{
   width: 45%;
   flex: 1;
-  min-width: 400px;
+  min-width: 600px;
 }
 
 h1, h2{
@@ -386,16 +387,11 @@ canvas#defaultCanvas0{
   align-items: stretch;
 }
 
-#events .left,
-#events .right{
-  width: 45%;
-  min-width: 600px;
-  flex: 1;
+#date-variables{
+  padding: 20px 10px;
+  border-bottom: 2px solid var(--light-secondary);
+  margin-bottom: 20px;
 }
-
-/* #events .right{
-  aspect-ratio: 1;
-} */
 
 #events-calender{
   padding: 20px 20px;
@@ -405,18 +401,17 @@ canvas#defaultCanvas0{
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
-  /* aspect-ratio: 1; */
 }
 
 .date {
   text-align: center;
-  padding: 15px 15px;
+  padding: 20px 15px;
 }
 
 .weekday {
   text-align: center;
   font-weight: bold;
-  padding: 15px 15px;
+  padding: 20px 15px;
 }
 
 .event{
@@ -432,14 +427,6 @@ canvas#defaultCanvas0{
 }
 
 
-#date-variables{
-  padding: 20px 10px;
-  border-bottom: 2px solid var(--light-secondary);
-  margin-bottom: 20px;
-}
-
-
-
 /* Space News */
 
 #space-news{
@@ -451,10 +438,6 @@ canvas#defaultCanvas0{
   padding: 20px 20px;
 }
 
-#space-news img{
-  width: 100%;
-  height: auto;
-}
 
 #latest-news{
   width: 98%;
@@ -494,7 +477,7 @@ canvas#defaultCanvas0{
   justify-content: space-between;
   align-items: start;
   flex: 1;
-  min-width: 300px;
+  min-width: 350px;
 }
 
 /* --------------------------------------------------- */
@@ -517,7 +500,7 @@ canvas#defaultCanvas0{
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
   text-align: center;
 }
 
