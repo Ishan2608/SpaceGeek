@@ -85,3 +85,37 @@ fetch(marsRoverAPI)
 // ------------------------------------------------------------------------------
 // RENDER NASA IMAGE GALLERY
 // ------------------------------------------------------------------------------
+
+const nasaImgAPIEndPoint = "https://images-api.nasa.gov/search?q=galaxy"
+const api = "https://images-api.nasa.gov/search?q=apollo%2011&media_type=image"
+const hubbleAPIEndPoint = 'http://hubblesite.org/api/v3/images';
+const hubbleAPIKey = "";
+
+fetch('https://images-api.nasa.gov/search?q=galaxy')
+  .then(response => {
+    return response.json();
+  })
+  .then(data => {
+    const galleryElement = document.getElementById("nasa-gallery");
+    const images = data.collection.items;
+    // console.log(images);
+
+    images.forEach(image => {
+      const galleryItem = document.createElement("div");
+      galleryItem.classList.add("img-wrapper");
+      const imgElement = document.createElement("img");
+
+      imgElement.src = image.links[0].href;
+      imgElement.alt = `${image.data[0].title}`;
+      imgElement.title = `${image.data[0].title}`;
+
+      galleryItem.appendChild(imgElement);
+      galleryElement.appendChild(galleryItem);
+  });
+  })
+  .catch(error => {
+    // Handle any errors
+    console.error('There was a problem with the fetch operation:', error);
+  });
+
+// ------------------------------------------------------------------------------
