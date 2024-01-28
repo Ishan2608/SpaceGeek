@@ -23,10 +23,8 @@ async function fetchSpaceXImages() {
 function displaySpaceXImages(images) {
   const galleryElement = document.getElementById("spacex-gallery");
 
-  if (galleryElement) {
-    // galleryElement.innerHTML = '';
-
-    images.forEach((launch) => {
+    for(let i = 0; i < 100; i++){
+      let launch = images[i];
       const galleryItem = document.createElement("div");
       galleryItem.classList.add("img-wrapper");
       const imageElement = document.createElement("img");
@@ -36,8 +34,8 @@ function displaySpaceXImages(images) {
 
       galleryItem.appendChild(imageElement);
       galleryElement.appendChild(galleryItem);
-    });
-  }
+    }
+
 }
 
 // Fetch SpaceX launch images and display them in the gallery
@@ -50,7 +48,7 @@ fetchSpaceXImages().then((images) => {
 // RENDER MARS ROVER IMAGE GALLERY
 // ------------------------------------------------------------------------------
 
-const marsRoverAPI = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&api_key=DEMO_KEY"
+const marsRoverAPI = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=100&api_key=DEMO_KEY"
 
 const marsRoverAPICamera = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=fhaz&api_key=DEMO_KEY"
 
@@ -62,20 +60,18 @@ fetch(marsRoverAPI)
   .then(data => {
     const galleryElement = document.getElementById("mars-rover-gallery");
     const images = data.photos;
+    for (let i = 0; i < 100; i++) {
+      const image = images[i];
+      const galleryItem = document.createElement("div");
+      galleryItem.classList.add("img-wrapper");
+      const imgElement = document.createElement("img");
 
-    // Create image elements and append them to the container
-    images.forEach(image => {
-        const galleryItem = document.createElement("div");
-        galleryItem.classList.add("img-wrapper");
-        const imgElement = document.createElement("img");
+      imgElement.src = image.img_src;
+      imgElement.alt = `Mars image from Curiosity rover`;
 
-        imgElement.src = image.img_src;
-        imgElement.alt = `Mars image from Curiosity rover`;
-        // imageContainer.appendChild(imgElement);
-
-        galleryItem.appendChild(imgElement);
-        galleryElement.appendChild(galleryItem);
-    });
+      galleryItem.appendChild(imgElement);
+      galleryElement.appendChild(galleryItem);
+    }
   })
   .catch(error => {
     console.error("Error fetching images:", error);
