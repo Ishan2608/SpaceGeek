@@ -389,7 +389,7 @@ canvas#defaultCanvas0{
 #events .left,
 #events .right{
   width: 45%;
-  min-width: 500px;
+  min-width: 600px;
   flex: 1;
 }
 
