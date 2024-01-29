@@ -1,5 +1,49 @@
-@media all and (max-width: 600px) {
-    #display-planet-info{
-        width: 400px;
+@media all and (max-width: 660px) {
+  #display-planet-info {
+    width: 420px;
+  }
+
+  #events {
+    background-color: var(--light-secondary-hover);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+  }
+
+  #events .left,
+  #events .right{
+    flex: 1;
+  }
+
+  #events-calender {
+    font-size: 12px;
+    padding: 10px 10px;
+    min-width: none;
+  }
+
+  #date-variables {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .date, .weekday {
+    padding: 15px 10px;
+  }
+
+}
+
+@media all and (max-width: 538px){
+    #events {
+        background-color: var(--dark-p);
+    }
+
+    #calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 60px);
+        justify-content: space-evenly;
     }
 }
