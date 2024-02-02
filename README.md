@@ -1,5 +1,5 @@
 # Space Geeks Frontend
-![Code Output]("./Space Geek.gif")
+<img src="./Space Geek.gif">
 
 I am trying to develop a web application using API services related to Space. This website will have multiple features like an interactive Solar System Model, Image Gallery, Space Events Calendar, News, etc. This repository contains the front-end code only. You can view the front [here](https://ishan2608.github.io/SpaceGeek/).
 
