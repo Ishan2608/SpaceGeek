@@ -1,52 +1,8 @@
 @media screen and (max-width: 660px) {
-  #display-planet-info {
-    width: 420px;
-  }
-
-  #events{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: space-evenly;
-    align-items: stretch;
-    padding: 10px;
-  }
-
-  #events .left,
-  #events .right{
-    flex: 1;
-    min-width: 100%;
-  }
-
-  #events-calender {
-    font-size: 12px;
-    padding: 10px 10px;
-    min-width: none;
-  }
-
-  #date-variables {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-  }
-  .date, .weekday {
-    padding: 15px 10px;
-  }
+ /*Code Goes Here.*/
 
 }
 
 @media all and (max-width: 538px){
-    #display-planet-info {
-      width: 380px;
-    }
-    #events {
-        background-color: var(--dark-p);
-    }
-
-    #calendar {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        justify-content: space-evenly;
-    }
+  /*Gode Goes Here*/
 }
