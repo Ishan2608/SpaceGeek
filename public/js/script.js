@@ -1,4 +1,13 @@
 // ------------------------------------------------------------
+// ALERT METHODS
+// ------------------------------------------------------------
+
+function showBackendProgressAlertMessage(){
+    alert("This functionality is currently unavailable.\nBackend Work is in Progress.");
+}
+
+
+// ------------------------------------------------------------
 // Astronomical Picture of the Day
 // ------------------------------------------------------------
 
