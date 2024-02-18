@@ -7,4 +7,4 @@ I will be developing the backend in Python programming language, using its Flask
 
 If you have an idea that can improve the site, whether it is a feature or the overall UI, do let me know. I am open to making this project be able to do... MORE.
 
-NOTE: The website is not 100% responsive. I am having some trouble in that area. It would be great to receive your help.
+NOTE: The website is not 100% responsive. I am having some trouble with the events calendar. It would be great to receive your help.
